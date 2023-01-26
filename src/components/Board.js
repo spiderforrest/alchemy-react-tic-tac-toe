@@ -5,7 +5,7 @@ import Box from './Box.js';
 export default function Board() {
   const { board } = useContext(GameContext);
   return (
-    <section>
+    <section className="board">
       {board.map((box, idx) => {
         return <Box key={idx} idx={idx} box={box} />;
       })}
