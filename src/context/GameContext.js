@@ -15,8 +15,6 @@ export const GameProvider = ({ children }) => {
     const newBoard = [...board];
     newBoard[idx] = currentPlayer;
     setBoard(newBoard);
-    console.log(board);
-    console.log(checkForWin());
     // change turn
     if (currentPlayer === 'x') {
       setCurrentPlayer('o');
