@@ -6,8 +6,8 @@ export default function Board() {
   const { board } = useContext(GameContext);
   return (
     <section>
-      {board.map((_, idx) => {
-        return <Box key={idx} idx={idx} />;
+      {board.map((box, idx) => {
+        return <Box key={idx} idx={idx} box={box} />;
       })}
     </section>
   );
