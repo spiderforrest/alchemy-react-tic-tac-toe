@@ -15,8 +15,7 @@ export const GameProvider = ({ children }) => {
     const newBoard = [...board];
     newBoard[idx] = currentPlayer;
     setBoard(newBoard);
-    console.log(checkForWin());
-
+    console.log(checkForWin(newBoard));
     // change turn
     if (currentPlayer === 'x') {
       setCurrentPlayer('o');
@@ -25,19 +24,20 @@ export const GameProvider = ({ children }) => {
     }
   }
 
-  function checkForWin() {
+  function checkForWin(board) {
     // i wish i was more clever :(
+    // aaaa i don't have time to figure out why my for loops are broken this hurts my soul
     // if it's str8 in a line horizontal it's 3 in a row
-    for (let i = 1; i < 9; i *= 3) {
-      if (board[i] && board[i - 1] === board[i] && board[i] === board[i + 1]) return 'a';
-    }
+    if (board[0] && board[0] === board[1] && board[1] === board[2]) return 'a';
+    if (board[3] && board[3] === board[4] && board[4] === board[5]) return 'a';
+    if (board[6] && board[6] === board[7] && board[7] === board[8]) return 'a';
     // if it's str8 vertical it's every 3rd
-    for (let i = 0; i < 3; i++) {
-      if ((board[i] === board[i + 3]) === board[i + 6]) return 'b';
-    }
+    if (board[0] && board[0] === board[3] && board[3] === board[6]) return 'b';
+    if (board[1] && board[1] === board[4] && board[3] === board[7]) return 'b';
+    if (board[2] && board[2] === board[5] && board[3] === board[8]) return 'b';
     // if it's angle it's every 4th or 2nd
-    if ((board[0] === board[4]) === board[8]) return 'c';
-    if ((board[2] === board[4]) === board[6]) return 'd';
+    if (board[0] && board[0] === board[4] && board[4] === board[8]) return 'c';
+    if (board[0] && board[2] === board[4] && board[4] === board[6]) return 'd';
     return false;
   }
 
