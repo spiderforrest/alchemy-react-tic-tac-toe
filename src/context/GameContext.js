@@ -5,12 +5,12 @@ export const GameProvider = ({ children }) => {
   // initialize everything to starting game state
   const [currentPlayer, setCurrentPlayer] = useState('x');
   const [active, setActive] = useState(true);
-  const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
+  const [board, setBoard] = useState(['.', '.', '.', '.', '.', '.', '.', '.', '.']);
   const [gameMessage, setGameMessage] = useState('Play a move to begin!');
 
   function doMove(idx) {
     // check if game's over or spot's taken
-    if (!board[idx] || !active) return;
+    if (!(board[idx] === '.') || !active) return;
     // modify the space
     const newBoard = [...board];
     newBoard[idx] = currentPlayer;
