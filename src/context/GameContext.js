@@ -28,16 +28,16 @@ export const GameProvider = ({ children }) => {
     // i wish i was more clever :(
     // aaaa i don't have time to figure out why my for loops are broken this hurts my soul
     // if it's str8 in a line horizontal it's 3 in a row
-    if (board[0] && board[0] === board[1] && board[1] === board[2]) return 'a';
-    if (board[3] && board[3] === board[4] && board[4] === board[5]) return 'a';
-    if (board[6] && board[6] === board[7] && board[7] === board[8]) return 'a';
+    if (board[0] && board[0] === board[1] && board[1] === board[2]) return board[0];
+    if (board[3] && board[3] === board[4] && board[4] === board[5]) return board[3];
+    if (board[6] && board[6] === board[7] && board[7] === board[8]) return board[6];
     // if it's str8 vertical it's every 3rd
-    if (board[0] && board[0] === board[3] && board[3] === board[6]) return 'b';
-    if (board[1] && board[1] === board[4] && board[3] === board[7]) return 'b';
-    if (board[2] && board[2] === board[5] && board[3] === board[8]) return 'b';
+    if (board[0] && board[0] === board[3] && board[3] === board[6]) return board[0];
+    if (board[1] && board[1] === board[4] && board[3] === board[7]) return board[1];
+    if (board[2] && board[2] === board[5] && board[3] === board[8]) return board[2];
     // if it's angle it's every 4th or 2nd
-    if (board[0] && board[0] === board[4] && board[4] === board[8]) return 'c';
-    if (board[0] && board[2] === board[4] && board[4] === board[6]) return 'd';
+    if (board[0] && board[0] === board[4] && board[4] === board[8]) return board[0];
+    if (board[2] && board[2] === board[4] && board[4] === board[6]) return board[2];
     return false;
   }
 
