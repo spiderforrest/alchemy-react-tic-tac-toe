@@ -1,10 +1,10 @@
-import React, { useContex } from 'react';
+import React, { useContext } from 'react';
 import { GameContext } from '../context/GameContext.js';
 
 export default function Box({ box, idx }) {
-  // todo: implement game logic and import it
+  const { doMove } = useContext(GameContext);
   return (
-    <div className="box">
+    <div className="box" onClick={() => doMove(idx)}>
       <p>{box}</p>
     </div>
   );

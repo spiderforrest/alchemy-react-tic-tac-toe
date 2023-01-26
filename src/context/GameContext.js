@@ -8,6 +8,14 @@ export const GameProvider = ({ children }) => {
   const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
   const [gameMessage, setGameMessage] = useState('Play a move to begin!');
 
+  function doMove(idx) {
+    // check if game's over or spot's taken
+    if (!board[idx] || !active) return;
+    const newBoard = [...board];
+    newBoard[idx] = currentPlayer;
+    setBoard(newBoard);
+  }
+
   return (
     <GameContext.Provider
       value={{
@@ -19,6 +27,7 @@ export const GameProvider = ({ children }) => {
         setBoard,
         gameMessage,
         setGameMessage,
+        doMove,
       }}
     >
       {children}
