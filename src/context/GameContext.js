@@ -2,9 +2,10 @@ import { createContext, useState } from 'react';
 
 export const GameContext = createContext('');
 export const GameProvider = ({ children }) => {
+  // initialize everything to starting game state
   const [currentPlayer, setCurrentPlayer] = useState('x');
   const [active, setActive] = useState(true);
-  const [board, setBoard] = useState([]);
+  const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
   const [gameMessage, setGameMessage] = useState('Play a move to begin!');
 
   return (
