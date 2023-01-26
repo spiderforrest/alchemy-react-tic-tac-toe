@@ -5,7 +5,7 @@ export default function Box({ box, idx }) {
   const { doMove } = useContext(GameContext);
   return (
     <div className="box" onClick={() => doMove(idx)}>
-      <p>{box}</p>
+      <p>{box.toUpperCase()}</p>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const GameContext = createContext('');
 export const GameProvider = ({ children }) => {
@@ -11,9 +11,16 @@ export const GameProvider = ({ children }) => {
   function doMove(idx) {
     // check if game's over or spot's taken
     if (!board[idx] || !active) return;
+    // modify the space
     const newBoard = [...board];
     newBoard[idx] = currentPlayer;
     setBoard(newBoard);
+    // change turn
+    if (currentPlayer === 'x') {
+      setCurrentPlayer('o');
+    } else {
+      setCurrentPlayer('x');
+    }
   }
 
   return (
