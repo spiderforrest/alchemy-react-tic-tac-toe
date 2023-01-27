@@ -7,5 +7,5 @@
 
 .board {
   display: grid;
-  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  grid-template: 104px 104px 104px / 104px 104px 104px;
 }

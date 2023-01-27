@@ -29,6 +29,11 @@ export const GameProvider = ({ children }) => {
       setActive(false);
       return;
     }
+    if (win === 'tie') {
+      setGameMessage('Tie!');
+      setActive(false);
+      return;
+    }
     // change turn
     if (currentPlayer === 'x') {
       setCurrentPlayer('o');
@@ -54,10 +59,9 @@ export const GameProvider = ({ children }) => {
     // if it's angle it's every 4th or 2nd
     if (board[0] && board[0] === board[4] && board[4] === board[8]) return board[0];
     if (board[2] && board[2] === board[4] && board[4] === board[6]) return board[2];
-    if (counter === 9) {
-      setGameMessage('Tie!');
-      setActive(false);
-    }
+    // check for a tie
+    if (counter >= 9) return 'tie';
+    // else
     return false;
   }
 
