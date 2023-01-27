@@ -1,0 +1,11 @@
+.box {
+  background: green;
+  width: 100px;
+  height: 100px;
+  margin: 4px;
+}
+
+.board {
+  display: grid;
+  grid-template: 104px 104px 104px / 104px 104px 104px;
+}
