@@ -4,10 +4,11 @@ import Board from './Board.js';
 import './Main.css';
 
 export default function Main() {
-  const { message } = useContext(GameContext);
+  const { gameMessage, setup } = useContext(GameContext);
   return (
     <main>
-      <h3>{message}</h3>
+      <h3>{gameMessage}</h3>
+      <button onClick={setup}>Restart</button>
       <Board />
     </main>
   );
